@@ -22,12 +22,12 @@ do
 	
 	echo "Downloading archive from $SRC"
 	
-	curl $SRC > tarfile
-	CHECKSUM=`sha256sum tarfile | cut -d " " -f 1 `
+	wget $SRC 
+	CHECKSUM=`sha256sum v$VERSION-$SUFFIX-$COQVER.tar.gz | cut -d " " -f 1 `
 	
 	echo "Archive sha256 checksum is $CHECKSUM"
 
-  rm tarfile
+  rm v$VERSION-$SUFFIX-$COQVER.tar.gz
 	
 	FILES=*.opam
 	for f in $FILES
